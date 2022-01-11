@@ -1,8 +1,6 @@
-import { BigNumber, ethers } from "../../deps.ts";
+import { BigNumber } from "../../deps.ts";
 
 import words from "./words.ts";
-
-const { keccak256 } = ethers.utils;
 
 function byteToHex(byte: number): string {
   return byte.toString(16).padStart(2, "0");
@@ -10,9 +8,7 @@ function byteToHex(byte: number): string {
 
 function hash(data: string) {
   const byteValues = Array.from(new TextEncoder().encode(data));
-  const hex = `0x${byteValues.map(byteToHex).join("")}`;
-
-  return keccak256(hex);
+  return `0x${byteValues.map(byteToHex).join("")}`;
 }
 
 export default class Rng {

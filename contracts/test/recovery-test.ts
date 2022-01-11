@@ -1,13 +1,11 @@
 import { expect } from "chai";
-
+import { BigNumber } from "ethers";
 import { ethers, network } from "hardhat";
 
+import { PublicKey } from "../clients";
 import Fixture from "../shared/helpers/Fixture";
 import deployAndRunPrecompileCostEstimator from "../shared/helpers/deployAndRunPrecompileCostEstimator";
 import { defaultDeployerAddress } from "../shared/helpers/deployDeployer";
-
-import { BigNumber } from "ethers";
-import { PublicKey } from "../clients/deps/hubble-bls/mcl";
 
 describe("Recovery", async function () {
   this.beforeAll(async function () {
@@ -54,7 +52,12 @@ describe("Recovery", async function () {
   });
 
   it("should update bls key", async function () {
-    const newKey: PublicKey = [1, 2, 3, 4].map(BigNumber.from);
+    const newKey: PublicKey = [
+      BigNumber.from(1),
+      BigNumber.from(2),
+      BigNumber.from(3),
+      BigNumber.from(4),
+    ];
     const initialKey = await blsWallet.getBLSPublicKey();
 
     await fx.call(wallet1, blsWallet, "setBLSPublicKey", [newKey], 1);
