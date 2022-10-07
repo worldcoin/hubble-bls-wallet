@@ -42,7 +42,7 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
     "react-table": "^7.7.0",
-    "sass": "^1.38.0",
+    "sass": "^1.54.9",
     "typed-emitter": "^1.3.1",
     "typescript": "^4.4.2",
     "webext-base-css": "^1.3.1",
